@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 快取 PlatformIO
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.platformio
+            ~/.cache/pip
+          key: pio-${{ runner.os }}-${{ hashFiles('platformio.ini') }}
+
+      - name: 安裝 PlatformIO
+        run: pip install --upgrade platformio
+
+      - name: 單元測試（native）
+        run: pio test -e native
+
+      - name: 測試元件燒錄工具（不連接硬體）
+        run: python3 -m unittest discover -s test_tools -v
+
+      - name: 模擬器跑完整示範流程
+        run: |
+          pio run -e native
+          .pio/build/native/program < scripts/demo.txt | tee demo.log
+          grep -q "A=85 元  B=110 元" demo.log
+          .pio/build/native/program < scripts/demo_lost.txt | tee demo_lost.log
+          grep -q "A=100 元  B=100 元  C=85 元" demo_lost.log
+
+      - name: 檢查 OLED 中文點陣沒有缺字
+        run: python3 tools/gen_oled_glyphs.py --check
+
+      - name: 編譯所有 env
+        run: pio run

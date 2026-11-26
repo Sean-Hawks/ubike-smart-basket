@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5ef">
+  <title>智慧籃子｜騎乘總覽</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="智慧籃子首頁">
+      <span class="brand-mark" aria-hidden="true"><i></i></span>
+      <span><strong>智慧籃子</strong><small>SMART BASKET</small></span>
+    </a>
+    <nav aria-label="主選單">
+      <a id="nav-overview" href="/"><span aria-hidden="true">◫</span>騎乘總覽</a>
+      <a id="nav-developer" href="/developer"><span aria-hidden="true">⊞</span>開發者模式</a>
+    </nav>
+    <div class="sidebar-footer"><span class="status-dot"></span><span id="source-caption">連線中</span></div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div><p class="eyebrow" id="section-label"></p><h1 id="title">騎乘總覽</h1></div>
+      <div class="view-selectors" id="selectors"></div>
+    </header>
+    <p id="connection-warning" class="notice" role="status" hidden></p>
+
+    <div id="overview" hidden>
+      <section class="hero" aria-labelledby="ride-state">
+        <div class="hero-body">
+          <p class="hero-label"><span class="status-dot"></span><span id="hero-source">正在連線</span></p>
+          <h2 id="ride-state">正在讀取車籃</h2>
+          <p id="ride-detail" class="hero-detail">等待裝置回傳最新狀態</p>
+        </div>
+        <div class="basket-art" aria-hidden="true">
+          <i class="ring ring-one"></i><i class="ring ring-two"></i>
+          <span class="basket-shape"><i></i><i></i><i></i></span>
+          <i class="signal signal-one"></i><i class="signal signal-two"></i>
+        </div>
+      </section>
+      <div id="summary" class="summary-grid" aria-label="帳戶與車籃摘要"></div>
+      <section class="pending-panel panel" id="pending-panel" aria-labelledby="pending-title" hidden>
+        <div class="section-head"><h2 id="pending-title">物品待確認</h2></div>
+        <div id="pending-list"></div>
+      </section>
+    </div>
+
+    <div id="developer" hidden>
+      <section class="dev-banner panel" id="dev-banner" aria-label="裝置連線"></section>
+      <section class="live-panel panel" id="live-panel" aria-labelledby="live-title" hidden>
+        <div class="section-head">
+          <div class="live-heading"><span class="live-dot" id="live-dot" aria-hidden="true"></span><h2 id="live-title">即時訊號</h2></div>
+          <span class="pill dim" id="live-state" role="status">等待裝置</span>
+        </div>
+        <p class="subtle" id="live-metrics">等待第一筆資料</p>
+        <div class="live-plots">
+          <div>
+            <h3>測距・最近 10 秒</h3>
+            <canvas class="live-chart" id="distance-chart" role="img" aria-label="兩顆測距感測器的距離趨勢"></canvas>
+            <p class="subtle"><span class="legend-dot distance-one"></span>測距 1 <span class="legend-dot distance-two"></span>測距 2</p>
+          </div>
+          <div id="live-ir-plot">
+            <h3>紅外線・最近 10 秒</h3>
+            <canvas class="live-chart" id="ir-chart" role="img" aria-label="紅外線收到的訊號段數，0 到 4 段"></canvas>
+            <p class="subtle">收到的訊號段數（0–4）</p>
+          </div>
+        </div>
+        <p class="subtle live-help" id="live-help">試著把白紙靠近測距頭，或遮住再移開紅外線。數值改變時，對應的卡片會亮一下。</p>
+      </section>
+      <section class="panel padded card-registration" id="card-registration" aria-labelledby="card-title">
+        <div class="section-head">
+          <h2 id="card-title">學生證登記</h2>
+          <button type="button" id="edit-card-label" disabled>登記這張卡</button>
+        </div>
+        <p id="card-identity">請先刷一張學生證</p>
+        <form class="tool-actions" id="card-label-form" hidden>
+          <label for="card-label-input">姓名或暱稱（<span id="editing-card-uid"></span>）</label>
+          <input type="text" id="card-label-input" maxlength="40" required>
+          <button type="submit" class="button-primary" id="save-card-label">儲存</button>
+          <button type="button" id="cancel-card-label">取消</button>
+        </form>
+        <p class="subtle" id="card-label-feedback" role="status"></p>
+      </section>
+      <div class="section-head diagnostics-title"><h2>即時硬體資訊</h2><span class="subtle" id="updated"></span></div>
+      <div class="sensor-grid" id="sensors"></div>
+      <div class="dev-grid">
+        <section class="panel padded">
+          <div class="section-head"><h2>車籃訊息</h2></div>
+          <pre id="oled">等待裝置資料</pre>
+          <div class="tool-actions" id="lid-controls" hidden>
+            <button data-lid="0">蓋子已打開</button>
+            <button data-lid="1">蓋子已關上</button>
+            <button data-calibrate>記錄空籃基準</button>
+          </div>
+        </section>
+        <section class="panel padded">
+          <div class="section-head"><h2>資料收集</h2></div>
+          <div id="storage-summary"></div>
+        </section>
+      </div>
+      <section class="panel padded simulation" id="simulation" hidden>
+        <div class="section-head"><h2>模擬操作</h2><span class="pill">展示資料</span></div>
+        <div class="tool-actions">
+          <label>卡片 <select id="sim-card"><option value="A">卡 A</option><option value="B">卡 B</option><option value="C">卡 C</option></select></label>
+          <button data-command="tap">刷卡借／還車</button>
+          <button data-command="button">按開蓋按鈕</button>
+          <button data-command="put 150">放入物品</button>
+          <button data-command="take">清空籃子</button>
+          <button data-command="tick 3">時間 +3 秒</button>
+          <button data-command="tick 16">時間 +16 秒</button>
+        </div>
+        <div class="tool-actions scenarios">
+          <button class="button-primary" data-scene="pending">載入待確認情境</button>
+          <button data-scene="trash">載入垃圾清理情境</button>
+          <button data-scene="empty">開始空籃情境</button>
+        </div>
+        <p class="subtle">載入情境會重設目前的模擬餘額與車籃狀態。已寫入 SQLite 的紀錄會保留。</p>
+      </section>
+    </div>
+
+    <p id="feedback" class="notice" role="status" hidden></p>
+
+    <section class="activity panel" aria-labelledby="activity-title">
+      <div class="activity-head">
+        <div><h2 id="activity-title">活動紀錄</h2><p id="activity-caption" class="subtle">目前卡片的借還與帳務明細</p></div>
+        <div id="filters" class="filters" aria-label="紀錄類型">
+          <button data-filter="all" aria-pressed="true">全部</button>
+          <button data-filter="rides" aria-pressed="false">刷卡與借還</button>
+          <button data-filter="money" aria-pressed="false">扣款與回饋</button>
+        </div>
+      </div>
+      <ol id="events" class="events"><li class="empty">正在讀取紀錄…</li></ol>
+      <div class="pagination" id="pagination" hidden>
+        <button id="newer">較新的紀錄</button>
+        <button id="older">較早的紀錄</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# ===== 示範：遺失物 + 逾時 =====
+# A 留下東西，網頁確認「是我的東西」→ 不扣錢，籃子標記有遺失物
+tap A
+button
+put 300
+tick 5
+tap A
+tick 16
+confirm mine A
+# B 借車：OLED 顯示「請勿取走」
+tap B
+tick 5
+tap B
+# A 回來借車把自己的東西拿走 → 籃子恢復乾淨（自己的東西不給回饋）
+tap A
+button
+take
+tick 3
+tap A
+# ----- 逾時：C 留下東西，2 分鐘內沒回應 → 視為垃圾，扣 15 -----
+set timeout_s 30
+tap C
+button
+put 80
+tick 3
+tap C
+tick 16
+tick 31

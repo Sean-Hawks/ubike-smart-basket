@@ -1,0 +1,7 @@
+{
+  "name": "drivers",
+  "version": "1.0.0",
+  "description": "ESP32 真實硬體驅動（實作 lib/core/Hal.h 的介面）",
+  "frameworks": "arduino",
+  "platforms": "espressif32"
+}

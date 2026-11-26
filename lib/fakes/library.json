@@ -1,0 +1,7 @@
+{
+  "name": "fakes",
+  "version": "1.0.0",
+  "description": "假的硬體實作（測試與模擬器用）",
+  "frameworks": "*",
+  "platforms": "native"
+}

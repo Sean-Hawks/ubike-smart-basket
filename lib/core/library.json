@@ -1,0 +1,7 @@
+{
+  "name": "core",
+  "version": "1.0.0",
+  "description": "智慧籃子核心邏輯（純 C++，不依賴 Arduino）",
+  "frameworks": "*",
+  "platforms": "*"
+}

@@ -1,0 +1,100 @@
+Tool: built-in image_gen (imagegen skill)
+Reference: docs/wiring-simple-1-esp32.png
+Verified against include/Pins.h before generation:
+{
+  "pins": {
+    "I2C_SDA": 21,
+    "I2C_SCL": 22,
+    "NFC_SCK": 18,
+    "NFC_MISO": 19,
+    "NFC_MOSI": 23,
+    "NFC_SS": 5,
+    "LID": 33,
+    "BUTTON": 32,
+    "LID_CLOSED_LEVEL": 0,
+    "TCA9548A_ADDR": 112,
+    "OLED_ADDR": 60
+  },
+  "tof_channels": [
+    0,
+    1
+  ],
+  "source_sha256": "9eb2823a455211d88a885e8a490f016cd9f64522801ce91bf10942fc7c4e9f7b"
+}
+
+Visual QA: only ESP32 image remains; OLED is now on the second I2C bus SDA=13/SCL=14; TCA main I2C is SDA=21/SCL=22; ToF channels 0 and 1; NFC SCK=18/MISO=19/MOSI=23/SS=5; lid=33 closed LOW; button=32 pressed LOW. Checked the generated table against these values. Physical board pin positions and hardware operation remain subject to verification.
+
+PROMPT
+Edit the supplied infographic to follow this exact user requirement:
+"上面放 ESP32，下面只列各元件的接線腳位，不要放元件圖片，請確認腳位跟程式一致。"
+
+There must be exactly ONE hardware illustration in the whole image: a recognizable ESP32-WROOM-32 development board at the TOP CENTER. Keep that top illustration. REMOVE ALL other component pictures, circuit board illustrations, sensor drawings, screen drawings, button drawings, switch symbols, circuit symbols, icons and schematic wire graphics. Below the top ESP32, show ONLY beautifully typeset Traditional Chinese TEXT and connection TABLES in simple rounded panels. No other object illustration anywhere. Text arrows in the pin mapping tables are fine, but no long drawn wires or decorative circuitry. Use the freed space for larger, clearer text.
+
+Main title: "ESP32 接線腳位表"
+Subtitle: "ESP32-WROOM-32｜照板上印字接，不按圖中位置數腳"
+Do not invent a physical pinout on the top board illustration. It is just a reference illustration of ESP32.
+Portrait light blue/white poster. The top board should occupy about the top fifth, leaving generous room for text. Below, arrange these six text-only sections in a clean balanced grid. Plain tables, large readable text, accurate Traditional Chinese. Supply entries may be red, GND dark gray, SDA blue, SCL green, but readability is paramount.
+
+The values below have been checked programmatically against the project's include/Pins.h. Preserve EVERY mapping and do not add or change pins.
+
+SECTION 1 — "① OLED 螢幕"
+Column labels "ESP32 腳位" | "OLED 腳位"
+"3V3 → VCC"
+"GND → GND"
+"GPIO21 → SDA"
+"GPIO22 → SCL"
+
+SECTION 2 — "② TCA9548A 分接板"
+Column labels "ESP32 腳位" | "TCA9548A 腳位"
+"3V3 → VIN/VCC"
+"GND → GND"
+"GPIO21 → SDA"
+"GPIO22 → SCL"
+Extra plain-text rows:
+"A0、A1、A2 → GND"
+"RST → 10kΩ 電阻 → 3V3"
+"已有板載 RST 上拉可沿用"
+Keep a small readable note nearby:
+"OLED 使用 GPIO13、GPIO14；TCA 使用 GPIO21、GPIO22，兩組 I²C 不相接"
+
+SECTION 3 — "③ 第一顆 VL53L0X"
+Column labels "來源腳位" | "測距模組腳位"
+"ESP32 3V3 → VIN/VCC"
+"ESP32 GND → GND"
+"TCA SD0 → SDA"
+"TCA SC0 → SCL"
+
+SECTION 4 — "④ 第二顆 VL53L0X"
+Column labels "來源腳位" | "測距模組腳位"
+"ESP32 3V3 → VIN/VCC"
+"ESP32 GND → GND"
+"TCA SD1 → SDA"
+"TCA SC1 → SCL"
+Shared short text note for sections 3 and 4:
+"兩顆測距分別走 TCA 第0、1路，不直接共接 GPIO21/22"
+"XSHUT、GPIO1 留空，保留模組原有上拉"
+
+SECTION 5 — "⑤ PN532 讀卡板（SPI）"
+Column labels "ESP32 腳位" | "PN532 腳位"
+"3V3 → VCC"
+"GND → GND"
+"GPIO18 → SCK"
+"GPIO19 → MISO"
+"GPIO23 → MOSI"
+"GPIO5 → SS/SSEL"
+Small text notes:
+"斷電切成 SPI，以實板模式表為準"
+"IRQ、RSTPDN 留空"
+
+SECTION 6 — "⑥ 關蓋開關／開蓋按鈕"
+TEXT ONLY, NO BUTTON OR SWITCH DRAWING OR SYMBOL.
+"關蓋開關：GPIO33 → 一端；另一端 → GND"
+"關蓋時導通"
+"開蓋按鈕：GPIO32 → 一端；另一端 → GND"
+"按下時導通"
+
+Footer: "已核對 include/Pins.h｜接線前斷電，接好後逐項實測"
+Small final note: "本頁模組供電皆為3.3V，實板須支援此電壓；圖示不代表排針位置。"
+Do not say hardware has passed physical verification. Do not mention 5V or 12V or add HX711/IR/buzzer/lock; this is only the first sheet.
+Very important negative constraint: BELOW THE TOP ESP32, ABSOLUTELY NO COMPONENT IMAGES — ONLY TEXT, TABLE HEADERS, SIMPLE COLORED CELL BACKGROUNDS, AND TEXT ARROWS.
+

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1710" viewBox="0 0 1500 1710">
+<rect width="1500" height="1710" fill="#f3f6fa"/>
+<text x="45" y="38" font-family="Heiti TC, PingFang TC, sans-serif" font-size="52" dominant-baseline="hanging" fill="#172b42">接線簡圖 ①：先接這些</text>
+<text x="45" y="110" font-family="Heiti TC, PingFang TC, sans-serif" font-size="28" dominant-baseline="hanging" fill="#536579">適用傳統 ESP32-WROOM-32；數字是板上 GPIO 印字，不是排針第幾根。</text>
+<rect x="45" y="160" width="1410" height="62" rx="20" fill="#e7f0ff" stroke="#c7dbfc" stroke-width="2"/>
+<text x="68" y="179" font-family="Heiti TC, PingFang TC, sans-serif" font-size="28" dominant-baseline="hanging" fill="#2563eb">先斷開所有電源再接線。每一條橫線，都代表一條實體電線。</text>
+<rect x="45" y="250" width="680" height="405" rx="20" fill="white" stroke="#dce4ee" stroke-width="2"/>
+<text x="70" y="272" font-family="Heiti TC, PingFang TC, sans-serif" font-size="35" dominant-baseline="hanging" fill="#172b42">1  OLED 螢幕</text>
+<text x="70" y="318" font-family="Heiti TC, PingFang TC, sans-serif" font-size="24" dominant-baseline="hanging" fill="#536579">左邊：OLED 腳位       右邊：ESP32 腳位</text>
+<text x="72" y="365" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#cc394d">VCC</text>
+<path d="M320,380 L375,380" fill="none" stroke="#cc394d" stroke-width="4"/>
+<text x="395" y="365" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">3V3</text>
+<text x="72" y="430" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#536579">GND</text>
+<path d="M320,445 L375,445" fill="none" stroke="#536579" stroke-width="4"/>
+<text x="395" y="430" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">GND</text>
+<text x="72" y="495" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#2563eb">SDA</text>
+<path d="M320,510 L375,510" fill="none" stroke="#2563eb" stroke-width="4"/>
+<text x="395" y="495" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">21</text>
+<text x="72" y="560" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#13856e">SCL</text>
+<path d="M320,575 L375,575" fill="none" stroke="#13856e" stroke-width="4"/>
+<text x="395" y="560" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">22</text>
+<rect x="775" y="250" width="680" height="405" rx="20" fill="white" stroke="#dce4ee" stroke-width="2"/>
+<text x="800" y="272" font-family="Heiti TC, PingFang TC, sans-serif" font-size="35" dominant-baseline="hanging" fill="#172b42">2  PN532 讀卡板</text>
+<text x="800" y="318" font-family="Heiti TC, PingFang TC, sans-serif" font-size="24" dominant-baseline="hanging" fill="#536579">使用 SPI 那排針；V3 板須支援 3.3 V 供電</text>
+<text x="802" y="350" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#cc394d">VCC</text>
+<path d="M1050,365 L1105,365" fill="none" stroke="#cc394d" stroke-width="4"/>
+<text x="1125" y="350" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">3V3</text>
+<text x="802" y="393" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#536579">GND</text>
+<path d="M1050,408 L1105,408" fill="none" stroke="#536579" stroke-width="4"/>
+<text x="1125" y="393" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">GND</text>
+<text x="802" y="436" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#2563eb">SCK</text>
+<path d="M1050,451 L1105,451" fill="none" stroke="#2563eb" stroke-width="4"/>
+<text x="1125" y="436" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">18</text>
+<text x="802" y="479" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#13856e">MISO</text>
+<path d="M1050,494 L1105,494" fill="none" stroke="#13856e" stroke-width="4"/>
+<text x="1125" y="479" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">19</text>
+<text x="802" y="522" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#2563eb">MOSI</text>
+<path d="M1050,537 L1105,537" fill="none" stroke="#2563eb" stroke-width="4"/>
+<text x="1125" y="522" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">23</text>
+<text x="802" y="565" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#13856e">SS / SSEL</text>
+<path d="M1050,580 L1105,580" fill="none" stroke="#13856e" stroke-width="4"/>
+<text x="1125" y="565" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">5</text>
+<rect x="45" y="685" width="680" height="500" rx="20" fill="white" stroke="#dce4ee" stroke-width="2"/>
+<text x="70" y="707" font-family="Heiti TC, PingFang TC, sans-serif" font-size="35" dominant-baseline="hanging" fill="#172b42">3  TCA9548A 分接板</text>
+<text x="70" y="753" font-family="Heiti TC, PingFang TC, sans-serif" font-size="24" dominant-baseline="hanging" fill="#536579">左邊：TCA 腳位       右邊：ESP32 腳位</text>
+<text x="72" y="795" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#cc394d">VIN / VCC</text>
+<path d="M320,810 L375,810" fill="none" stroke="#cc394d" stroke-width="4"/>
+<text x="395" y="795" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#172b42">3V3</text>
+<text x="72" y="846" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#536579">GND</text>
+<path d="M320,861 L375,861" fill="none" stroke="#536579" stroke-width="4"/>
+<text x="395" y="846" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#172b42">GND</text>
+<text x="72" y="897" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#2563eb">SDA</text>
+<path d="M320,912 L375,912" fill="none" stroke="#2563eb" stroke-width="4"/>
+<text x="395" y="897" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#172b42">21</text>
+<text x="72" y="948" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#13856e">SCL</text>
+<path d="M320,963 L375,963" fill="none" stroke="#13856e" stroke-width="4"/>
+<text x="395" y="948" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#172b42">22</text>
+<text x="72" y="999" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#536579">A0、A1、A2</text>
+<path d="M320,1014 L375,1014" fill="none" stroke="#536579" stroke-width="4"/>
+<text x="395" y="999" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#172b42">都接 GND</text>
+<text x="72" y="1050" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#b56a0a">RST</text>
+<path d="M320,1065 L375,1065" fill="none" stroke="#b56a0a" stroke-width="4"/>
+<text x="395" y="1050" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#172b42">經 10kΩ 接 3V3</text>
+<text x="70" y="1122" font-family="Heiti TC, PingFang TC, sans-serif" font-size="24" dominant-baseline="hanging" fill="#536579">OLED 使用 13、14；TCA 使用 21、22，兩組 I²C 不相接。</text>
+<rect x="775" y="685" width="680" height="500" rx="20" fill="white" stroke="#dce4ee" stroke-width="2"/>
+<text x="800" y="707" font-family="Heiti TC, PingFang TC, sans-serif" font-size="35" dominant-baseline="hanging" fill="#172b42">4  兩顆 VL53L0X 測距</text>
+<text x="800" y="753" font-family="Heiti TC, PingFang TC, sans-serif" font-size="24" dominant-baseline="hanging" fill="#536579">每顆的 VCC/VIN → ESP32 3V3；GND → GND</text>
+<text x="800" y="795" font-family="Heiti TC, PingFang TC, sans-serif" font-size="28" dominant-baseline="hanging" fill="#13856e">第一顆 → 接 TCA 第 0 路</text>
+<text x="802" y="844" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#2563eb">SDA</text>
+<path d="M1050,859 L1105,859" fill="none" stroke="#2563eb" stroke-width="4"/>
+<text x="1125" y="844" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">TCA 的 SD0</text>
+<text x="802" y="896" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#13856e">SCL</text>
+<path d="M1050,911 L1105,911" fill="none" stroke="#13856e" stroke-width="4"/>
+<text x="1125" y="896" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">TCA 的 SC0</text>
+<text x="800" y="961" font-family="Heiti TC, PingFang TC, sans-serif" font-size="28" dominant-baseline="hanging" fill="#13856e">第二顆 → 接 TCA 第 1 路</text>
+<text x="802" y="1010" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#2563eb">SDA</text>
+<path d="M1050,1025 L1105,1025" fill="none" stroke="#2563eb" stroke-width="4"/>
+<text x="1125" y="1010" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">TCA 的 SD1</text>
+<text x="802" y="1062" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#13856e">SCL</text>
+<path d="M1050,1077 L1105,1077" fill="none" stroke="#13856e" stroke-width="4"/>
+<text x="1125" y="1062" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#172b42">TCA 的 SC1</text>
+<text x="800" y="1122" font-family="Heiti TC, PingFang TC, sans-serif" font-size="24" dominant-baseline="hanging" fill="#536579">XSHUT、GPIO1 不接，保留模組原有上拉。</text>
+<rect x="45" y="1215" width="1410" height="220" rx="20" fill="white" stroke="#dce4ee" stroke-width="2"/>
+<text x="70" y="1237" font-family="Heiti TC, PingFang TC, sans-serif" font-size="35" dominant-baseline="hanging" fill="#172b42">5  開關與按鈕</text>
+<text x="70" y="1283" font-family="Heiti TC, PingFang TC, sans-serif" font-size="24" dominant-baseline="hanging" fill="#536579">接到 GND 的意思：讓電線連到 ESP32 的 GND 腳。</text>
+<text x="75" y="1325" font-family="Heiti TC, PingFang TC, sans-serif" font-size="32" dominant-baseline="hanging" fill="#172b42">GPIO33 ── 關蓋開關 ── GND</text>
+<text x="820" y="1325" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#13856e">關蓋時要導通</text>
+<text x="75" y="1380" font-family="Heiti TC, PingFang TC, sans-serif" font-size="32" dominant-baseline="hanging" fill="#172b42">GPIO32 ── 開蓋按鈕 ── GND</text>
+<text x="820" y="1380" font-family="Heiti TC, PingFang TC, sans-serif" font-size="29" dominant-baseline="hanging" fill="#13856e">按下時才導通</text>
+<text x="50" y="1482" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#536579">PN532：斷電切成 SPI。V3 常見為 1 OFF、2 ON，以實板模式表為準。</text>
+<text x="50" y="1536" font-family="Heiti TC, PingFang TC, sans-serif" font-size="30" dominant-baseline="hanging" fill="#2563eb">先只接 OLED 的 4 條線，測試螢幕亮了，再往下接其他零件。</text>
+<text x="50" y="1592" font-family="Heiti TC, PingFang TC, sans-serif" font-size="27" dominant-baseline="hanging" fill="#cc394d">下一張才接秤重、紅外線、蜂鳴器、鎖；缺驅動零件時不要直接接 GPIO。</text>
+<text x="50" y="1650" font-family="Heiti TC, PingFang TC, sans-serif" font-size="23" dominant-baseline="hanging" fill="#536579">這是依程式及商品資料整理的接線方案，實品腳位需核對，尚待實機驗證。</text>
+</svg>

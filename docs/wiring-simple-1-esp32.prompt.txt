@@ -1,0 +1,81 @@
+Tool: built-in image_gen (imagegen skill)
+Purpose: first wiring illustration with ESP32 at top; no firmware changes.
+
+INITIAL PROMPT
+Edit the supplied wiring infographic into a genuinely easier-to-follow beginner wiring illustration in Traditional Chinese. This is an engineering wiring graphic; electrical correctness matters more than decorative realism. Replace the old collection of disconnected text tables with one coherent top-to-bottom layout.
+
+Primary request: put ONE large recognizable ESP32-WROOM-32 development board at the TOP CENTER. Draw the OLED, PN532, TCA9548A, TWO VL53L0X sensors, a lid switch and a pushbutton beneath it, with simple colored wiring and explicit endpoint labels. Retain all those components from the source. No HX711, IR, lock or buzzer in this first-sheet image. Do not create multiple ESP32 boards.
+
+Use a clean light background, generous whitespace, flat illustrated PCBs, very legible large Traditional Chinese captions. Portrait educational poster. Show only the relevant labeled ESP32 connection points, arranged schematically to minimize crossing wires. Depict the board recognizably with metal ESP32 shield and USB port, but DO NOT invent a complete physical board pinout. Place a clear subtitle next to the board: "ESP32-WROOM-32 接線示意｜照板上印字接，不照圖中位置數腳". Main title: "第一張：從 ESP32 接到各零件". A compact colored legend and module pin labels replace lengthy explanations. Do not reproduce the dense previous tables.
+
+EXACT CONNECTIONS, preserve faithfully:
+- All supply rails in this sheet are 3.3V. ESP32 is powered by USB. NEVER show 5V or 12V connected to any module in this first sheet.
+- OLED: VCC -> ESP32 3V3; GND -> GND; SDA -> GPIO13; SCL -> GPIO14. This is the ESP32 second hardware I2C bus.
+- TCA9548A main side: VIN/VCC -> ESP32 3V3; GND -> GND; SDA -> GPIO21; SCL -> GPIO22. GPIO21 and GPIO22 are reserved for TCA and its two ToF channels. Add a small note directly by TCA: "A0、A1、A2 → GND；RST 經 10kΩ → 3V3".
+- First VL53L0X: SDA -> TCA SD0; SCL -> TCA SC0. Second VL53L0X: SDA -> TCA SD1; SCL -> TCA SC1. Put these TWO sensors beneath TCA, each clearly labeled "第一顆測距" and "第二顆測距". Each sensor VIN/VCC -> 3V3 and GND -> common GND. Do not connect either sensor's SDA/SCL directly to ESP32. Add a compact note: "XSHUT、GPIO1 留空，沿用模組上拉".
+- PN532 with a clearly labeled SPI connector: VCC -> ESP32 3V3; GND -> GND; SCK -> GPIO18; MISO -> GPIO19; MOSI -> GPIO23; SS -> GPIO5. Label the four signal paths individually so SCK is visibly 18, MISO 19, MOSI 23, SS 5. Small note: "切到 SPI，依實板模式表". No I2C/SDA/SCL on PN532.
+- Lid switch is a two-terminal switch between GPIO33 and GND; label "關蓋開關｜關蓋時導通".
+- Pushbutton is a two-terminal normally-open momentary switch between GPIO32 and GND; label "開蓋按鈕｜按下才導通".
+- Ground is common. NO connection between 3V3 and GND. Don't accidentally terminate wires at wrong PCB pins.
+- Red = 3.3V supply, dark gray/black = GND, other distinct colors = signals. For legibility you MAY use a plainly labeled "3V3" / "GND" distribution strip and a small repeated red/black power connector at each module. A beginner must see clearly where both power wires go. Do not omit power to the ToF sensors.
+- Electrical connections must be unambiguous. Avoid crossings; if crossings unavoidable, distinguish junction dot vs no dot. Use small readable wire labels at both ends instead of huge bundles.
+- Number the modules by assembly order (1 OLED, 2 TCA, 3 and 4 the two ToFs, 5 PN532, 6 switches) and make the OLED's four-wire path especially easy to follow.
+Footer only: "先斷電接線；一次接一個、測一個。先從 OLED 的 4 條線開始。"
+Do not claim physically verified hardware. Preserve the reference's pin assignments, not its crowded layout. Accurate text without spelling errors.
+
+FINAL REVISION PROMPT
+Redesign this first wiring infographic for a total beginner, keeping ONE attractive large ESP32-WROOM-32 board illustration at the TOP CENTER, but REMOVE THE ENTIRE SPAGHETTI NETWORK OF LONG WIRES. The last image's wire endpoints around ToF sensors and switches are ambiguous. Correctness is essential; never attach a wire to a mounting hole or guess a physical pin layout.
+
+New layout: one ESP32 at top, 3 large illustrated connection cards directly below for OLED, TCA9548A and PN532. Two small sensor cards below TCA. Bottom has two very simple switch circuits. Only a broad pale directional arrow from ESP32 down toward the module cards indicates "依腳位名稱接線"; it is NOT an electrical wire. Do NOT draw global red/black supply rails or individual long wires between the top board and all the cards. Each card contains clear SHORT color-coded endpoint-to-endpoint connections, so users trace at most one short line, with an explicit source label and destination label. This is how to simplify while remaining exact. A simple module illustration sits above each card's connections, without any wires attached to unlabelled PCB holes.
+
+Main title: "第一張接線圖｜ESP32 在上方"
+Board subtitle: "照板上印字接，不照圖中位置數腳"
+Use large Traditional Chinese text, clean white/light-blue background, plenty of spacing. No extra modules.
+
+EXACT contents of the THREE middle cards:
+Card 1 illustration OLED, caption "① OLED 螢幕（1.3吋 SH1106）"
+Two column labels "ESP32" and "OLED"
+3V3 — VCC (red)
+GND — GND (black)
+13 — SDA (blue)
+14 — SCL (green)
+Card 2 illustration TCA9548A, caption "② TCA9548A 分接板"
+Two column labels "ESP32" and "TCA9548A"
+3V3 — VIN/VCC (red)
+GND — GND (black)
+21 — SDA (blue)
+22 — SCL (green)
+Small note "A0、A1、A2 接 GND；RST 經 10kΩ 接 3V3"
+Small note linking cards 1 and 2: "螢幕使用 13、14；分接板使用 21、22，兩組 I²C 不相接"
+Card 3 illustration PN532, caption "⑤ PN532 讀卡板"
+Two column labels "ESP32" and "PN532（SPI）"
+3V3 — VCC (red)
+GND — GND (black)
+18 — SCK (purple)
+19 — MISO (cyan)
+23 — MOSI (blue)
+5 — SS (orange)
+Small note "切成 SPI 模式，以實板模式表為準"
+
+Below TCA, two clearly separate sensor cards with pictures:
+"③ 第一顆 VL53L0X" has EXACT connections:
+"ESP32 3V3 — VCC/VIN"
+"ESP32 GND — GND"
+"TCA SD0 — SDA"
+"TCA SC0 — SCL"
+"④ 第二顆 VL53L0X" has EXACT connections:
+"ESP32 3V3 — VCC/VIN"
+"ESP32 GND — GND"
+"TCA SD1 — SDA"
+"TCA SC1 — SCL"
+It is crucial the first sensor uses SD0/SC0 and the second SD1/SC1, with SDA and SCL distinct. Do not cross-connect them. These are short labelled lines inside cards, NOT a bundle of long wires. Compact note "XSHUT、GPIO1 留空，保留模組上拉".
+
+At bottom, "⑥ 開關和按鈕" two short black/pink wiring circuits drawn horizontally, including unmistakable switch symbol with two terminals:
+"ESP32 33 — [關蓋開關] — GND", note "關蓋時導通"
+"ESP32 32 — [開蓋按鈕] — GND", note "按下才導通"
+Neither switch has a connection to 3V3. No loose ambiguous hanging lines.
+
+Footer: "先斷電接線。先接 OLED 的 4 條線，測試成功再接下一個。"
+Small safety/source caption: "適用傳統 ESP32-WROOM-32；各模組須支援 3.3V。本圖為接線示意。"
+Do not show 0.96 inch screen variants. Do not add any 5V or 12V components. Preserve the board-at-top concept and make the short connection lines, labels, and source/destination columns much bigger and more understandable than the original crowded wiring network.
+
